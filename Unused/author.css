@@ -1,0 +1,111 @@
+/* ============================================================
+   AUTHOR PAGE — author.css
+   ============================================================ */
+
+.author-profile-section {
+  padding-top: calc(var(--nav-height) + 60px);
+  padding-bottom: 60px;
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0.05) 0%,
+    var(--black) 100%
+  );
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.author-profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  background: var(--card-bg);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 3.5rem;
+  position: relative;
+}
+
+.author-avatar-large {
+  width: 150px;
+  height: 150px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  overflow: hidden; /* عشان الصورة تتقص دائرية بالظبط جوه البرواز */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212,175,55,0.03);
+  box-shadow: var(--glow);
+  flex-shrink: 0;
+}
+
+.author-avatar-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* بيضمن إن الصورة تملى الفراغ بدون ما تتمط */
+  display: block;
+}
+
+.author-details {
+  flex: 1;
+}
+
+.author-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--cream);
+  margin-top: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.author-role {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+.author-bio {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+.author-articles-section {
+  background: var(--deep-black);
+}
+
+.author-section-header {
+  margin-bottom: 3rem;
+}
+
+.author-section-header .section-title {
+  font-size: 1.8rem;
+  color: var(--cream);
+}
+.author-section-header .section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* تعديل ستايل الرابط في صفحة about */
+.author-page-link {
+  color: var(--cream);
+  transition: color var(--transition);
+}
+.author-page-link:hover {
+  color: var(--gold);
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .author-profile-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+  .gold-divider.left {
+    margin-left: auto;
+  }
+}

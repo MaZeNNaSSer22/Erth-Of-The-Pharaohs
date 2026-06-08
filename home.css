@@ -1,0 +1,1145 @@
+/* ============================================================
+   HOME PAGE — home.css
+   ============================================================ */
+
+/* ── HERO ──────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 50% -10%,
+      rgba(212, 175, 55, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 50% at 50% 100%,
+      rgba(212, 175, 55, 0.06) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, #000 0%, #0a0808 50%, #000 100%);
+}
+
+.hero-bg-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 800px at 50% 50%,
+    rgba(212, 175, 55, 0.04) 0%,
+    transparent 70%
+  );
+}
+
+/* Floating hieroglyph symbols */
+.hero-hieroglyphs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hiero {
+  position: absolute;
+  font-size: 1.6rem;
+  color: var(--gold);
+  opacity: 0.06;
+  animation: hieroDrift 18s ease-in-out infinite;
+}
+
+.hiero.h1 {
+  top: 15%;
+  left: 8%;
+  animation-duration: 14s;
+  animation-delay: 0s;
+  font-size: 2rem;
+  opacity: 0.08;
+}
+.hiero.h2 {
+  top: 25%;
+  right: 9%;
+  animation-duration: 20s;
+  animation-delay: -4s;
+  font-size: 1.4rem;
+}
+.hiero.h3 {
+  top: 70%;
+  left: 5%;
+  animation-duration: 16s;
+  animation-delay: -8s;
+  font-size: 2.4rem;
+  opacity: 0.05;
+}
+.hiero.h4 {
+  top: 80%;
+  right: 12%;
+  animation-duration: 22s;
+  animation-delay: -2s;
+  font-size: 1.2rem;
+}
+.hiero.h5 {
+  top: 45%;
+  left: 3%;
+  animation-duration: 25s;
+  animation-delay: -12s;
+  font-size: 1rem;
+  opacity: 0.04;
+}
+.hiero.h6 {
+  top: 55%;
+  right: 4%;
+  animation-duration: 18s;
+  animation-delay: -6s;
+  font-size: 1.8rem;
+}
+
+@keyframes hieroDrift {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(3deg);
+  }
+  66% {
+    transform: translateY(12px) rotate(-2deg);
+  }
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.3s forwards;
+}
+
+.hero-title-wrap {
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.5s forwards;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  line-height: 1;
+}
+
+.hero-title-of {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: 0.6em;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+}
+
+.hero-title-pharaohs {
+  font-family: var(--font-display);
+  font-size: clamp(
+    2.2rem,
+    6.5vw,
+    4.5rem
+  ); /* الحجم هنا بقى أصغر وأهدى على العين */
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 80px rgba(212, 175, 55, 0.4),
+    0 0 160px rgba(212, 175, 55, 0.15);
+  animation: titlePulse 6s ease-in-out infinite 1.5s;
+}
+
+@keyframes titlePulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 80px rgba(212, 175, 55, 0.4),
+      0 0 160px rgba(212, 175, 55, 0.15);
+  }
+  50% {
+    text-shadow:
+      0 0 100px rgba(212, 175, 55, 0.55),
+      0 0 200px rgba(212, 175, 55, 0.25);
+  }
+}
+
+/* Artifact frame centerpiece
+.hero-artifact {
+  margin: 2.5rem auto;
+  width: 220px;
+  height: 220px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease 0.8s forwards;
+}
+
+.artifact-outer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: artifactRotate 30s linear infinite;
+} */
+
+/* 1. تكبير حجم الفريم الأساسي نفسه */
+.hero-artifact {
+  width: clamp(
+    280px,
+    45vw,
+    500px
+  ) !important; /* كبرنا العرض الأقصى لـ 500px والأدنى لـ 280px */
+  height: clamp(
+    280px,
+    45vw,
+    500px
+  ) !important; /* كبرنا الارتفاع بنفس النسبة عشان يفضل مربع فخم */
+  margin: 3rem auto; /* توسيط الفريم مع مسافة مريحة بينه وبين الكتابة */
+}
+
+/* 2. إجبار العنصر الداخلي للفريم إنه ياخد المساحة كاملة */
+.artifact-inner {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important; /* شيلنا أي مسافات داخلية قديمة كانت بتصغر الصورة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* عشان لو الصورة فيها أطراف زيادة ما تطلعش بره البرواز الذهبي */
+}
+
+/* 3. جعل الصورة تملأ الفريم بالكامل وبأعلى جودة */
+.artifact-image-file {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; /* التعديل السحري: بيخلي الصورة تفرش وتملا المربع بالكامل زي الخلفية */
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(
+    0 0 25px rgba(212, 175, 55, 0.4)
+  ); /* زودنا التوهج الذهبي عشان يظهر ورا الصورة الكبيرة */
+}
+
+@keyframes artifactRotate {
+  from {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 60px rgba(212, 175, 55, 0.2),
+      inset 0 0 30px rgba(212, 175, 55, 0.05);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Corner ornaments */
+.artifact-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--gold);
+  border-style: solid;
+}
+.artifact-corner--tl {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+.artifact-corner--tr {
+  top: -1px;
+  right: -1px;
+  border-width: 2px 2px 0 0;
+}
+.artifact-corner--bl {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 2px 2px;
+}
+.artifact-corner--br {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Side decorative lines */
+.artifact-side {
+  position: absolute;
+  background: rgba(212, 175, 55, 0.3);
+}
+.artifact-side--top,
+.artifact-side--bottom {
+  height: 1px;
+  width: 40%;
+  left: 30%;
+}
+.artifact-side--left,
+.artifact-side--right {
+  width: 1px;
+  height: 40%;
+  top: 30%;
+}
+.artifact-side--top {
+  top: 10px;
+}
+.artifact-side--bottom {
+  bottom: 10px;
+}
+.artifact-side--left {
+  left: 10px;
+}
+.artifact-side--right {
+  right: 10px;
+}
+
+.artifact-inner {
+  width: 140px;
+  height: 140px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+.artifact-eye {
+  font-size: 2.8rem;
+  color: var(--gold);
+  opacity: 0.9;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  animation: eyePulse 4s ease-in-out infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes eyePulse {
+  0%,
+  100% {
+    opacity: 0.9;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.9);
+  }
+}
+
+.artifact-scarab {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: var(--gold);
+  opacity: 0.5;
+}
+.artifact-ankh {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: var(--gold);
+  opacity: 0.5;
+}
+.artifact-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.08) 0%,
+    transparent 70%
+  );
+  animation: glowPulse 3s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.hero-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  font-style: italic;
+  color: var(--cream-dim);
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 1s forwards;
+}
+
+.hero-cta {
+  opacity: 0;
+  animation: fadeUp 0.9s ease 1.2s forwards;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  animation: fadeIn 1s ease 2s both;
+}
+.scroll-label {
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  color: var(--gold-muted);
+  text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px;
+  height: 50px;
+  background: rgba(212, 175, 55, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-dot {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 1px;
+  height: 12px;
+  background: var(--gold);
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+@keyframes scrollDrop {
+  0% {
+    top: -12px;
+    opacity: 1;
+  }
+  80% {
+    top: 50px;
+    opacity: 1;
+  }
+  100% {
+    top: 50px;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── TICKER ───────────────────────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  background: var(--deep-black);
+  padding: 14px 0;
+}
+.ticker-track {
+  display: flex;
+  gap: 4rem;
+  white-space: nowrap;
+  animation: tickerScroll 30s linear infinite;
+  will-change: transform;
+}
+.ticker-track span {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  flex-shrink: 0;
+}
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── DISCOVERIES SECTION ──────────────────────────────── */
+.discoveries {
+  background: var(--black);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-header .eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.45em;
+  margin-bottom: 0.8rem;
+}
+.section-header .eyebrow2 {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.45em;
+  margin-bottom: 0.8rem;
+  padding-top: 6rem;
+}
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+}
+.section-header h2 em {
+  font-family: var(--font-body);
+  font-style: normal;
+  color: var(--gold);
+}
+.section-desc {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+/* Card grid */
+.discoveries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.5px;
+}
+
+/* Featured card spans 2 rows */
+.disc-card--featured {
+  grid-row: span 1;
+}
+
+.disc-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-dark);
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
+  overflow: hidden;
+  cursor: pointer;
+}
+.disc-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px);
+}
+
+.disc-card-img {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+/* .disc-card--featured .disc-card-img {
+  height: 340px;
+} */
+
+/* Stylized placeholder backgrounds using CSS gradients */
+.disc-card-img-inner {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.8s ease;
+}
+.disc-card:hover .disc-card-img-inner {
+  transform: scale(1.06);
+}
+
+.sphinx-bg {
+  background: radial-gradient(ellipse at 60% 40%, #3d2a0a, #1a1008, #000);
+}
+.sphinx-bg::after {
+  content: "𓂀";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.2);
+}
+
+.karnak-bg {
+  background: radial-gradient(ellipse at 50% 60%, #1a1a0a, #0d0d05, #000);
+}
+.karnak-bg::after {
+  content: "𓉐";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.2);
+}
+
+.tut-bg {
+  background: radial-gradient(ellipse at 40% 50%, #2a1a05, #150d00, #000);
+}
+.tut-bg::after {
+  content: "𓋹";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.2);
+}
+
+.rosetta-bg {
+  background: radial-gradient(ellipse at 55% 45%, #0a0f1a, #050810, #000);
+}
+.rosetta-bg::after {
+  content: "𓂧";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.15);
+}
+
+.valley-bg {
+  background: radial-gradient(ellipse at 45% 55%, #120a1a, #090513, #000);
+}
+.valley-bg::after {
+  content: "𓆣";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.18);
+}
+
+.abu-bg {
+  background: radial-gradient(ellipse at 50% 40%, #1a0a0a, #100505, #000);
+}
+.abu-bg::after {
+  content: "𓃀";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.15);
+}
+
+.disc-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+}
+
+.disc-card-body {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.disc-cat {
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.disc-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+}
+.disc-card--featured .disc-title {
+  font-size: 1.4rem;
+}
+
+.disc-desc {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  line-height: 1.75;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.disc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-dark);
+}
+.disc-author {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: var(--cream-dim);
+}
+.disc-divider {
+  color: var(--gold-muted);
+}
+.disc-date {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  color: var(--gold-muted);
+}
+
+.disc-link {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap var(--transition);
+}
+.disc-link:hover {
+  gap: 0.8rem;
+}
+.disc-link span {
+  font-size: 0.9rem;
+}
+
+.discoveries-footer {
+  width: 100%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 4rem; */
+}
+
+/* ── STATS BAND ───────────────────────────────────────── */
+.stats-band {
+  background: var(--deep-black);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.stat-item {
+  padding: 2rem 1rem;
+  position: relative;
+}
+.stat-item::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 1px;
+  background: rgba(212, 175, 55, 0.12);
+}
+.stat-item:last-child::after {
+  display: none;
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.stat-label {
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+}
+
+/* ── QUOTE SECTION ────────────────────────────────────── */
+.quote-section {
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    rgba(212, 175, 55, 0.05) 0%,
+    transparent 70%
+  );
+}
+.quote-inner {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  position: relative;
+}
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 0.5;
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+}
+blockquote {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: var(--cream);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+cite {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .discoveries-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .disc-card--featured {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .disc-card--featured .disc-card-img {
+    height: 260px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-item::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .discoveries-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .disc-card--featured {
+    grid-column: span 1;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-artifact {
+    width: 160px;
+    height: 160px;
+  }
+  .artifact-inner {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* الحاوية الكبيرة: بتضمن إن الخلفية تكون سوداء وتوسط الفيديو في السنتر */
+/* الحاوية الكبيرة اللي بتجمع الفيديوهات جنب بعض */
+.video-grid-container {
+  display: flex;
+  flex-wrap: wrap; /* عشان لو الشاشة صغيرة الفيديوهات تنزل تحت بعض تلقائي */
+  justify-content: center; /* يوسط الفيديوهات في نص الشاشة */
+  gap: 2rem; /* مسافة أمان أنيقة بين كل فيديو والثاني */
+  padding: 3rem 1.5rem;
+  background: #000000;
+  width: 100%;
+}
+
+/* حاوية صغيرة لكل فيديو عشان نتحكم في الارتفاع الموحد */
+.video-wrapper {
+  height: 75vh; /* نفس الارتفاع الفخم القديم مريح للعين */
+  aspect-ratio: 9 / 16; /* إجبار أبعاد الموبايل الطولية */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* تنسيق الفيديوهات الطولية */
+.luxury-video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; /* يفرش جوه الإطار بتاعه بالملي */
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  cursor: pointer; /* يحول الماوس ليد */
+  transition:
+    transform var(--transition),
+    border-color var(--transition);
+}
+
+/* تأثير خفيف لما تقف بالماوس على الفيديو */
+.luxury-video:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* ريسبونسيف ذكي للموبايل: لو الشاشة صغيرة يظهروا تحت بعض بشكل مثالي */
+@media (max-width: 768px) {
+  .video-wrapper {
+    height: 65vh; /* تصغير الارتفاع قليلاً على الشاشات الصغيرة */
+    width: 100%;
+  }
+}
+/* الحاوية الكبيرة: بتجبر أي حاجة جواها تيجي في نص الشاشة بالظبط */
+.team-members-container {
+  width: 100%;
+  min-height: 60vh; /* واخدة مساحة مريحة من ارتفاع الشاشة */
+  display: flex;
+  align-items: center; /* التوسيط بالطول (عمودياً) */
+  justify-content: center; /* التوسيط بالعرض (أفقياً) */
+  background: #000000; /* خلفية سوداء متناسقة مع الموقع */
+  padding: 2rem;
+}
+
+/* تنسيق الصورة نفسها */
+.Team-Members {
+  max-width: 90%; /* حماية الصورة عشان ما تخرجش بره الشاشة في الموبايل */
+  height: auto; /* الحفاظ على الأبعاد الأصلية للصورة بدون تمطيط */
+  max-height: 500px; /* حد أقصى للارتفاع عشان ما تبقاش ضخمة زيادة عن اللزوم */
+  object-fit: contain;
+
+  /* لمسة الفخامة: برواز ذهبي رقيق مع توهج ناعم يعزل صورة الفريق */
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition:
+    border-color 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* تأثير أنيق لما تقف بالماوس على صورة الفريق */
+.Team-Members:hover {
+  border-color: var(--gold);
+  transform: scale(1.01); /* تكبير غير ملحوظ جداً يعطي إحساس بالتفاعل */
+}
+
+/* تنسيق عنوان الباحث العلوي */
+.author-section-header {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 3rem; /* مسافة تفصل العنوان عن الكروت تحته */
+  padding: 0 1rem;
+}
+
+.author-discoveries-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.8rem;
+}
+
+/* خط ذهبي زخرفي رقيق تحت اسم الباحث */
+.gold-line-divider {
+  width: 300px;
+  height: 1px;
+  background: var(--gold);
+  /* margin: 0 auto; */
+  opacity: 0.6;
+}
+/* ضبط الـ Grid ليرص 4 كروت بالظبط في نفس السطر */
+.discoveries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* تعديل الرقم لـ 4 أعمدة متساوية */
+  gap: 1.5rem; /* تم تقليل المسافة قليلاً (من 2rem لـ 1.5rem) عشان الكروت تلاقي مساحة مريحة جنب بعض */
+  width: 100%;
+  max-width: 1400px; /* زيادة الحد الأقصى لعرض الحاوية لتستوعب الكروت الأربعة بشكل فخم */
+  margin: 0 auto;
+}
+
+/* ── التجاوب الذكي (Responsive) للشاشات الأصغر ── */
+
+@media (max-width: 1200px) {
+  .discoveries-grid {
+    grid-template-columns: repeat(2, 1fr); /* كارتين في السطر على الشاشات المتوسطة أو التابلت الكبير */
+  }
+}
+
+@media (max-width: 768px) {
+  .discoveries-grid {
+    grid-template-columns: 1fr; /* كارت واحد بكامل العرض على الموبايل عشان التصميم ما ينضغطش والكلام يفضل مقروء */
+  }
+}
+/* الحاوية الرئيسية */
+.artefact-viewer {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* أو المقاس اللي يريحك */
+  height: 500px; /* تأكد إن الارتفاع يغطي الصور */
+  margin: 0 auto; /* لتوسيط الحاوية */
+  cursor: pointer; /* تغيير شكل الماوس ليد */
+  overflow: hidden; /* حماية الأطراف */
+  background: #000; /* خلفية سوداء فخمة */
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* تنسيق الصور المشترك */
+.artefact-img {
+  position: absolute; /* رص الصور فوق بعض */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* الحفاظ على أبعاد التمثال بدون تمطيط */
+
+  /* الإخفاء الافتراضي والتحويل السلس */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease; /* تأثير تلاشي ناعم */
+
+  z-index: 1; /* مستوى طبقة منخفض */
+}
+
+/* الكلاس الخاص بالصورة النشطة (الظاهرة) */
+.artefact-img.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2; /* مستوى طبقة مرتفع ليظهر فوق الباقي */
+}
+
+
+/* الحاوية الخاصة بالوصف لضمان التوسيط وعدم التمدد الزائد */
+.erth-description-container {
+  width: 100%;
+  max-width: 800px; /* جعل النص لا يفرش بكامل الشاشة ليكون مريحاً جداً في القراءة */
+  margin: 2rem auto; /* لتوسيط الحاوية في منتصف الصفحة وإعطائها مسافة أمان */
+  padding: 0 1.5rem;
+  text-align: center; /* توسيط الكلام */
+}
+
+/* تنسيق الخط والبراجراف الفخم */
+.erth-premium-paragraph {
+  font-family: 'Tajawal', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.35rem); /* حجم خط ديناميكي ذكي يناسب الموبايل والشاشات الكبيرة */
+  font-weight: 500;
+  color: #e0e0e0; /* لون أوف وايت/رمادي فاتح جداً مريح للعين على الخلفية السوداء */
+  line-height: 1.8; /* مسافة عمودية مثالية بين السطور تمنع تداخل الكلام */
+  letter-spacing: 0.02em;
+  margin: 0;
+  direction: rtl;
+}
+
+/* حركة فخمة: تلوين أول كلمة "إرث" بالذهب الملكي وجعلها عريضة */
+.erth-premium-paragraph .gold-drop-cap {
+  color: #d4af37; /* لون الذهب الخاص بـ ERTH */
+  font-weight: 700;
+  font-size: 1.15em; /* أكبر سيكة من باقي الكلام لتبهر العين */
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* تجاوب إضافي للموبايل */
+@media (max-width: 768px) {
+  .erth-premium-paragraph {
+    line-height: 1.7;
+    text-align: justify; /* جعل السطور متساوية من الجوانب على الموبايل لشكل أنظف */
+    text-align-last: center; /* تضمن أن السطر الأخير يظل في المنتصف */
+  }
+}
+
+.discoveries-subtitle-wrap {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem; /* مسافة تفصل الجملة عن الكروت تحتها */
+  padding: 0 1rem;
+}
+
+.discoveries-sub-eng {
+  font-family: 'Cinzel', 'Playfair Display', serif; /* خطوط سيريف كلاسيكية فخمة للإنجليزي */
+  font-size: clamp(2rem, 1.8vw, 1.25rem); /* حجم مرن ومتناسق */
+  color: var(--cream); /* لون الذهب الملكي الخاص بـ ERTH */
+  text-transform: uppercase; /* جعل كل الحروف Capital يعطي طابع المتاحف */
+  letter-spacing: 0.15em; /* توسيع المسافات بين الحروف لشكل أكثر فخامة */
+  opacity: 0.85;
+  margin: 0;
+}

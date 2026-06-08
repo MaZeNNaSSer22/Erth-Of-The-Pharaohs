@@ -1,0 +1,456 @@
+تفضل، تم تعديل كلاس الأفاتار (`.team-avatar`) ليتحول من دائرة إلى **مربع كبير وفخم**، وجعلنا الصورة بداخله تفرش وتملاه بالكامل (`object-fit: cover`) مع الحفاظ على جميع الحواف والزوايا الذهبية من غير أي تغيير في باقي هيكل الملف أو الكروت.
+
+إليك ملف الـ `about.css` كامل وجاهز للنسخ:
+
+```css
+/* ============================================================
+   ABOUT PAGE — about.css
+   ============================================================ */
+
+/* ── MISSION SECTION ────────────────────────────────────── */
+.mission {
+  background: var(--black);
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* توزيع مثالي ليعطي مساحة أكبر للصورة */
+  gap: 5rem;
+  align-items: start;
+}
+
+.mission-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--cream);
+  margin-bottom: 0.6rem;
+  line-height: 1.15;
+}
+.mission-heading em {
+  font-family: var(--font-heading);
+  font-style: normal;
+  color: var(--cream);
+}
+
+.mission-body {
+  font-size: 1.2rem;
+  color: #f5f4f1;
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+
+/* About stats row */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 3rem;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.about-stat {
+  padding: 1.8rem 1.5rem;
+  border-right: 1px solid rgba(212, 175, 55, 0.12);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  transition: background var(--transition);
+}
+.about-stat:nth-child(2n) {
+  border-right: none;
+}
+.about-stat:nth-child(3),
+.about-stat:nth-child(4) {
+  border-bottom: none;
+}
+
+.about-stat:hover {
+  background: rgba(212, 175, 55, 0.03);
+}
+
+.about-stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+}
+
+/* ── PHOTO FRAME (RESTORED & ENLARGED) ───────────────────── */
+.photo-frame {
+  position: sticky;
+  top: calc(var(--nav-height) + 40px);
+  width: 100%;
+}
+
+.photo-frame-outer {
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 16px; /* زيادة الهامش الداخلي ليعطي فخامة */
+  background: var(--deep-black);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Gold corner brackets */
+.photo-frame-corner {
+  position: absolute;
+  width: 30px; /* تكبير حجم الزوايا لتناسب حجم الفريم الجديد */
+  height: 30px;
+  border-color: var(--gold);
+  border-style: solid;
+  z-index: 2;
+}
+.pfc--tl {
+  top: -1px;
+  left: -1px;
+  border-width: 3px 0 0 3px;
+}
+.pfc--tr {
+  top: -1px;
+  right: -1px;
+  border-width: 3px 3px 0 0;
+}
+.pfc--bl {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 3px 3px;
+}
+.pfc--br {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 3px 3px 0;
+}
+
+.photo-frame-inner {
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  background: var(--panel-bg);
+  aspect-ratio: 4/3; /* يحافظ على أبعاد سينمائية عريضة */
+  width: 100%;
+  min-height: 380px; /* تكبير الحد الأدنى للارتفاع لتكون الصورة واضحة جداً */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* تنسيق الصورة بداخل الفريم لتملأه بالكامل بدون تمطيط */
+.photo-frame-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.photo-frame-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(212, 175, 55, 0.04),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(212, 175, 55, 0.03),
+      transparent 50%
+    );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photo-placeholder {
+  text-align: center;
+  z-index: 1;
+}
+.photo-ph-icon {
+  font-size: 4.5rem;
+  color: var(--gold);
+  /* opacity: 0.25; */
+  display: block;
+  margin-bottom: 1rem;
+}
+.photo-ph-label {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.photo-ph-sub {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-muted);
+  text-transform: uppercase;
+}
+
+.photo-caption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+.photo-caption span {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-muted);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.caption-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* ── TEAM SECTION (STRICT FIRST-CHILD LEADER LAYOUT) ─────── */
+.team-section {
+  background: var(--deep-black);
+}
+.section-center {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.team-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; /* يضمن توسيط أي عنصر في السطر */
+  gap: 1.5rem;
+  padding: 3rem 1.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  width: 100%;
+}
+
+/* إجبار الكارت الأول والوحيد (Omnia Ebrahim) على الانفصال التام في أعلى المنتصف */
+.team-grid .team-card:nth-child(1) {
+  flex: 0 300px !important; /* يأخذ 100% من العرض ليعزل السطر الأول بالكامل */
+  max-width: 300px !important; /* منع تشوه عرض الكارت */
+  margin: 0 max(0px, calc(50% - 150px)) 4rem max(0px, calc(50% - 150px)) !important; /* سنتره في النص وصنع مسافة ضخمة تحته للـ 12 كارت */
+  /* border: 1px solid rgba(162, 147, 97, 0.3) !important; تمييز إطار الليدر بلون ذهبي أوضح */
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+/* إضافة خط زخرفة أسفل كارت الليدر مباشرة للفصل الهيكلي */
+/* .team-grid .team-card:nth-child(1)::after {
+  content: "𓂀 TEAM LEADER 𓂀";
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  white-space: nowrap;
+} */
+/* تنسيق المسمى الوظيفي الطبيعي في أسفل الكارت */
+.team-member-role {
+  text-align: center;
+  margin-top: 1rem; /* بيعمل مسافة مريحة بين الاسم والمسمى الوظيفي */
+  margin-bottom: 0;
+  
+  /* الخط والألوان الملكية */
+  font-family: 'Tajawal', var(--font-ui), sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #d4af37; /* لون الذهب الصريح */
+  
+  /* حماية وتأمين */
+  background: transparent;
+  white-space: nowrap;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+/* ضبط حاوية الاسم لتظهر المحتويات في أسطر منفصلة */
+.team-name {
+  display: flex;
+  flex-direction: column; /* السطر السحري اللي بيخليهم تحت بعض */
+  align-items: center;    /* لتوسيط الكلام في النص بالظبط */
+  gap: 0.5rem;            /* مسافة أمان صغيرة ومريحة بين الاسم والمسمى الوظيفي */
+  
+  /* تنسيق اسم الشخص الأصلي (عدل الفونت واللون براحتك) */
+  font-size: 1.3rem;
+  color: #ffffff; 
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
+/* تنسيق المسمى الوظيفي الفرعوني اللي تحت الاسم */
+.team-role {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.95rem; /* أصغر سيكة من الاسم عشان التراتبية البصرية */
+  font-weight: 600;
+  color: #d4af37; /* لون الذهب الصريح الخاص بـ ERTH */
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* تنسيق باقي الـ 12 كارت التابعة له */
+.team-card {
+  position: relative;
+  flex: 1 1 calc(25% - 1.5rem); /* رص الكروت بالتساوي (4 كروت في السطر) */
+  min-width: 230px;
+  max-width: 260px;
+  padding: 2.5rem 1.8rem;
+  background: var(--card-bg);
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.04);
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.team-card:hover {
+  background: var(--panel-bg);
+  border-color: rgba(212, 175, 55, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ── التعديل الاحترافي: تحويل الرمز/الأفاتار إلى مربع كبير وتملأه الصورة بالكامل ── */
+.team-avatar {
+  width: 100%; /* تم تكبير الحجم ليكون المربع واضحاً ومميزاً */
+  height: 100%;
+  margin: 0 auto 0rem;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 0%; /* إزالة التدوير تماماً ليصبح مربع صريح */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* لمنع خروج الصورة عن حدود المربع */
+  background: rgba(212, 175, 55, 0.04);
+  transition:
+    border-color var(--transition),
+    background var(--transition);
+}
+
+/* لضمان أن الصورة بداخل المربع تأخذ المساحة كاملة بأعلى جودة وبدون تمطيط */
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* فرد وتغطية الصورة للمربع بالكامل */
+}
+
+.team-card:hover .team-avatar {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.team-name {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  margin-bottom: 0.3rem;
+}
+.team-role {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0rem;
+}
+.team-bio {
+  font-size: 0.82rem;
+  color: var(--cream-dim);
+  line-height: 1.75;
+}
+
+/* ── VALUES BAND ──────────────────────────────────────── */
+.values-band {
+  background: var(--black);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+.value-item {
+  text-align: center;
+  padding: 2rem;
+}
+.value-icon {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+.value-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+.value-desc {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  line-height: 1.75;
+}
+
+/* ── RESPONSIVE MEDIA QUERIES ──────────────────────────── */
+@media (max-width: 1200px) {
+  .team-grid .team-card {
+    flex: 1 1 calc(33.33% - 1.5rem); /* 3 كروت في السطر للشاشات المتوسطة */
+  }
+  .team-grid .team-card:nth-child(1) {
+    flex: 0 0 100% !important; /* يظل الليدر مستقلاً بالكامل */
+  }
+}
+
+@media (max-width: 1024px) {
+  .mission-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .photo-frame {
+    position: static;
+  }
+  .photo-frame-inner {
+    min-height: 450px;
+  } /* تكبير الصورة أكثر في الشاشات العريضة بعد التجاوب */
+}
+
+@media (max-width: 768px) {
+  .team-grid .team-card {
+    flex: 1 1 calc(50% - 1.5rem); /* كارتين جنب بعض في التابلت والموبايل */
+  }
+  .team-grid .team-card:nth-child(1) {
+    flex: 0 0 100% !important;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid .team-card {
+    flex: 1 1 100%; /* كارت واحد كامل العرض للموبايلات الصغيرة جداً */
+  }
+}
+
+```

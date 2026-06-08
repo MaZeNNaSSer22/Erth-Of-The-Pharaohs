@@ -1,0 +1,338 @@
+/* ============================================================
+   SOCIAL PAGE — social.css
+   ============================================================ */
+
+.social-section { background: var(--black); }
+
+/* ── PLATFORM CARD ───────────────────────────────────── */
+.platform-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid rgba(212,175,55,0.18);
+  padding: 2.8rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.platform-card:hover {
+  border-color: rgba(212,175,55,0.5);
+  box-shadow: var(--glow);
+}
+
+/* Ambient glow BG per platform */
+.platform-card-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+.platform-card:hover .platform-card-bg { opacity: 1; }
+
+[data-platform="instagram"] .platform-card-bg {
+  background: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(212,175,55,0.06) 0%, transparent 70%);
+}
+[data-platform="x"] .platform-card-bg {
+  background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(255,255,255,0.03) 0%, transparent 70%);
+}
+[data-platform="youtube"] .platform-card-bg {
+  background: radial-gradient(ellipse 60% 40% at 0% 100%, rgba(212,75,55,0.05) 0%, transparent 70%);
+}
+[data-platform="facebook"] .platform-card-bg {
+  background: radial-gradient(ellipse 60% 40% at 100% 100%, rgba(55,100,212,0.04) 0%, transparent 70%);
+}
+
+/* ── PLATFORM HEADER ─────────────────────────────────── */
+.platform-header {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.platform-follow-btn { margin-left: auto; }
+
+.platform-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(212,175,55,0.04);
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+.platform-card:hover .platform-icon-wrap {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.08);
+  box-shadow: 0 0 20px rgba(212,175,55,0.2);
+}
+
+.platform-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+  transition: color var(--transition);
+}
+
+.platform-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.15rem;
+}
+.platform-handle {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-muted);
+}
+
+/* ── BTN PLATFORM ────────────────────────────────────── */
+.btn-platform {
+  font-size: 0.58rem;
+  padding: 10px 22px;
+  letter-spacing: 0.25em;
+}
+
+/* ── METRICS ─────────────────────────────────────────── */
+.platform-metrics {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(212,175,55,0.12);
+  margin-bottom: 2rem;
+}
+.metric {
+  flex: 1;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  border-right: 1px solid rgba(212,175,55,0.08);
+  transition: background var(--transition);
+}
+.metric:last-child { border-right: none; }
+.metric:hover { background: rgba(212,175,55,0.04); }
+.metric-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.metric-label {
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+}
+
+/* ── POST GRID (Instagram) ───────────────────────────── */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+  margin-bottom: 1.5rem;
+}
+.post-thumb {
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.post-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--panel-bg);
+  transition: transform 0.4s ease;
+}
+.pt-1::before { background: radial-gradient(ellipse at 50% 30%, #3d2a0a, #0a0800); }
+.pt-2::before { background: radial-gradient(ellipse at 50% 70%, #1a1a0a, #050500); }
+.pt-3::before { background: radial-gradient(ellipse at 30% 50%, #2a1a05, #080500); }
+.pt-4::before { background: radial-gradient(ellipse at 70% 40%, #0a0f1a, #020508); }
+.pt-5::before { background: radial-gradient(ellipse at 50% 50%, #120a1a, #050309); }
+.pt-6::before { background: radial-gradient(ellipse at 40% 60%, #1a0a0a, #060200); }
+
+.post-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--gold);
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+.post-thumb:hover .post-overlay { opacity: 1; }
+
+.platform-latest {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--cream-dim);
+  line-height: 1.7;
+  border-left: 2px solid rgba(212,175,55,0.35);
+  padding-left: 1rem;
+}
+.platform-latest strong { color: var(--gold); }
+
+/* ── DUAL ROW ────────────────────────────────────────── */
+.dual-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.platform-card--half {
+  display: flex;
+  flex-direction: column;
+}
+.mt-auto { margin-top: auto; }
+
+/* ── TWEET FEED ──────────────────────────────────────── */
+.tweet-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.tweet-item {
+  padding: 1.2rem;
+  background: var(--panel-bg);
+  border-left: 2px solid rgba(212,175,55,0.2);
+  transition: border-color var(--transition), background var(--transition);
+}
+.tweet-item:hover {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.03);
+}
+.tweet-text {
+  font-size: 0.85rem;
+  color: var(--cream);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+.tweet-meta {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-muted);
+}
+
+/* ── VIDEO LIST ──────────────────────────────────────── */
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.video-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.8rem;
+  background: var(--panel-bg);
+  align-items: center;
+  transition: background var(--transition);
+  cursor: pointer;
+}
+.video-item:hover { background: rgba(212,175,55,0.04); }
+.video-thumb {
+  width: 90px;
+  height: 60px;
+  flex-shrink: 0;
+  border: 1px solid rgba(212,175,55,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.vt1 { background: radial-gradient(ellipse at 50% 50%, #2a1a00, #080500); }
+.vt2 { background: radial-gradient(ellipse at 50% 50%, #0a1020, #030508); }
+.vt3 { background: radial-gradient(ellipse at 50% 50%, #1a0a15, #060203); }
+
+.play-btn {
+  font-size: 0.9rem;
+  color: var(--gold);
+  opacity: 0.7;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.video-item:hover .play-btn { opacity: 1; transform: scale(1.15); }
+.video-title {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--cream);
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+.video-meta {
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-muted);
+}
+
+/* ── FACEBOOK POSTS ──────────────────────────────────── */
+.fb-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 1rem;
+}
+.fb-post {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: var(--panel-bg);
+  border-left: 2px solid rgba(212,175,55,0.15);
+  transition: border-color var(--transition), background var(--transition);
+}
+.fb-post:hover {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.03);
+}
+.fb-post-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  opacity: 0.5;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
+}
+.fb-post-text {
+  font-size: 0.88rem;
+  color: var(--cream);
+  line-height: 1.75;
+  margin-bottom: 0.6rem;
+}
+.fb-post-meta {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-muted);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .dual-row { grid-template-columns: 1fr; }
+  .post-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .platform-card { padding: 1.8rem; }
+  .platform-metrics { flex-wrap: wrap; }
+  .metric { min-width: 50%; border-bottom: 1px solid rgba(212,175,55,0.08); }
+  .post-grid { grid-template-columns: repeat(3, 1fr); }
+  .platform-follow-btn { width: 100%; }
+  .btn-platform { width: 100%; justify-content: center; }
+}
