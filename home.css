@@ -724,6 +724,8 @@
   color: var(--cream);
   letter-spacing: 0.04em;
   line-height: 1.35;
+  direction: rtl;
+  text-align: right;
 }
 .disc-card--featured .disc-title {
   font-size: 1.4rem;
@@ -737,6 +739,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  direction: rtl;
+  text-align: right;
 }
 
 .disc-meta {
