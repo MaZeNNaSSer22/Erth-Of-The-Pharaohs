@@ -1039,7 +1039,10 @@ cite {
 
 @media (max-width: 1200px) {
   .discoveries-grid {
-    grid-template-columns: repeat(2, 1fr); /* كارتين في السطر على الشاشات المتوسطة أو التابلت الكبير */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* كارتين في السطر على الشاشات المتوسطة أو التابلت الكبير */
   }
 }
 
@@ -1088,7 +1091,6 @@ cite {
   z-index: 2; /* مستوى طبقة مرتفع ليظهر فوق الباقي */
 }
 
-
 /* الحاوية الخاصة بالوصف لضمان التوسيط وعدم التمدد الزائد */
 .erth-description-container {
   width: 100%;
@@ -1100,8 +1102,12 @@ cite {
 
 /* تنسيق الخط والبراجراف الفخم */
 .erth-premium-paragraph {
-  font-family: 'Tajawal', sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.35rem); /* حجم خط ديناميكي ذكي يناسب الموبايل والشاشات الكبيرة */
+  font-family: "Tajawal", sans-serif;
+  font-size: clamp(
+    1.1rem,
+    2vw,
+    1.35rem
+  ); /* حجم خط ديناميكي ذكي يناسب الموبايل والشاشات الكبيرة */
   font-weight: 500;
   color: #e0e0e0; /* لون أوف وايت/رمادي فاتح جداً مريح للعين على الخلفية السوداء */
   line-height: 1.8; /* مسافة عمودية مثالية بين السطور تمنع تداخل الكلام */
@@ -1147,25 +1153,26 @@ cite {
 
 .discoveries-subtitle-wrap {
   width: 100%;
-  display: flex;         /* ضفنا flex عشان نضمن التوسيط الماسي */
-  justify-content: center; 
+  display: flex; /* ضفنا flex عشان نضمن التوسيط الماسي */
+  justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;    /* مسافة تفصل الجملة عن الكروت تحتها */
-  padding: 0 1.5rem;      /* زودنا مسافة الأمان للجوانب عشان الموبايل */
+  margin-bottom: 2rem; /* مسافة تفصل الجملة عن الكروت تحتها */
+  padding: 0 1.5rem; /* زودنا مسافة الأمان للجوانب عشان الموبايل */
   box-sizing: border-box;
 }
 
 .discoveries-sub-eng {
-  font-family: 'Cinzel', 'Playfair Display', serif; /* خطوط سيريف كلاسيكية فخمة للإنجليزي */
-  
+  font-family:
+    "Cinzel", "Playfair Display", serif; /* خطوط سيريف كلاسيكية فخمة للإنجليزي */
+
   /* ── تصحيح الـ clamp: الحجم الصغير 1.2rem والكبير 1.8rem ── */
-  font-size: clamp(1.2rem, 2vw, 1.8rem); 
-  
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+
   color: var(--cream); /* لون الذهب الملكي الخاص بـ ERTH */
-  text-align: center;  /* نضمن إن النص يتوسطن بالملي */
+  text-align: center; /* نضمن إن النص يتوسطن بالملي */
   text-transform: uppercase; /* جعل كل الحروف Capital يعطي طابع المتاحف */
   letter-spacing: 0.15em; /* توسيع المسافات بين الحروف لشكل أكثر فخامة */
-  line-height: 1.4;    /* مسافة عمودية ممتازة لو العنوان نزل على سطرين في الموبايل */
+  line-height: 1.4; /* مسافة عمودية ممتازة لو العنوان نزل على سطرين في الموبايل */
   opacity: 0.85;
   margin: 0;
 }
@@ -1175,7 +1182,7 @@ cite {
   .discoveries-subtitle-wrap {
     margin-bottom: 1.5rem; /* تقليل المسافة تحت العنوان لتناسب حجم الشاشة الصغير */
   }
-  
+
   .discoveries-sub-eng {
     letter-spacing: 0.08em; /* تقليل المسافات بين الحروف سيكة عشان الكلمات الطويلة متخرجش بره الشاشة */
   }
@@ -1196,9 +1203,16 @@ cite {
     width: 80%; /* طول الفاصل في نص الشاشة */
     margin: 3rem auto; /* مسافة أمان ممتازة بين الكارت اللي فوق واللي تحت */
     height: 4px; /* سمك الفاصل */
-    
+
     /* تدرج ذهبي فخم يختفي عند الأطراف ويمسك في النص */
-    background: linear-gradient(to right, transparent, #d4af37 20%, #aa7c11 50%, #d4af37 80%, transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      #d4af37 20%,
+      #aa7c11 50%,
+      #d4af37 80%,
+      transparent
+    );
     border-radius: 10px;
     opacity: 0.8;
   }

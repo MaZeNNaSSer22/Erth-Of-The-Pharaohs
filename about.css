@@ -403,6 +403,8 @@
   line-height: 1.75;
 }
 
+
+
 /* ── RESPONSIVE MEDIA QUERIES ──────────────────────────── */
 @media (max-width: 1200px) {
   .team-grid .team-card {
