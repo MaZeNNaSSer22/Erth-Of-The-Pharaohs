@@ -1,8 +1,3 @@
-تفضل، تم تعديل كلاس الأفاتار (`.team-avatar`) ليتحول من دائرة إلى **مربع كبير وفخم**، وجعلنا الصورة بداخله تفرش وتملاه بالكامل (`object-fit: cover`) مع الحفاظ على جميع الحواف والزوايا الذهبية من غير أي تغيير في باقي هيكل الملف أو الكروت.
-
-إليك ملف الـ `about.css` كامل وجاهز للنسخ:
-
-```css
 /* ============================================================
    ABOUT PAGE — about.css
    ============================================================ */
@@ -264,14 +259,14 @@
   text-align: center;
   margin-top: 1rem; /* بيعمل مسافة مريحة بين الاسم والمسمى الوظيفي */
   margin-bottom: 0;
-  
+
   /* الخط والألوان الملكية */
-  font-family: 'Tajawal', var(--font-ui), sans-serif;
+  font-family: "Tajawal", var(--font-ui), sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   color: #d4af37; /* لون الذهب الصريح */
-  
+
   /* حماية وتأمين */
   background: transparent;
   white-space: nowrap;
@@ -281,19 +276,19 @@
 .team-name {
   display: flex;
   flex-direction: column; /* السطر السحري اللي بيخليهم تحت بعض */
-  align-items: center;    /* لتوسيط الكلام في النص بالظبط */
-  gap: 0.5rem;            /* مسافة أمان صغيرة ومريحة بين الاسم والمسمى الوظيفي */
-  
+  align-items: center; /* لتوسيط الكلام في النص بالظبط */
+  gap: 0.5rem; /* مسافة أمان صغيرة ومريحة بين الاسم والمسمى الوظيفي */
+
   /* تنسيق اسم الشخص الأصلي (عدل الفونت واللون براحتك) */
   font-size: 1.3rem;
-  color: #ffffff; 
+  color: #ffffff;
   text-align: center;
   margin-top: 0.6rem;
 }
 
 /* تنسيق المسمى الوظيفي الفرعوني اللي تحت الاسم */
 .team-role {
-  font-family: 'Tajawal', sans-serif;
+  font-family: "Tajawal", sans-serif;
   font-size: 0.95rem; /* أصغر سيكة من الاسم عشان التراتبية البصرية */
   font-weight: 600;
   color: #d4af37; /* لون الذهب الصريح الخاص بـ ERTH */
@@ -453,4 +448,103 @@
   }
 }
 
-```
+/* ============================================================
+   إضافات التجاوب والموبايل لصفحة ABOUT US (ERTH)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* 1. ضبط الهيدر الرئيسي لصفحة الـ About */
+  .page-hero {
+    padding: 6rem 1rem 3rem 1rem !important; /* مسافة أمان علوية عشان الناف بار */
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(
+      2.2rem,
+      8vw,
+      3rem
+    ) !important; /* حجم خط يناسب شاشة الموبايل */
+    margin-bottom: 0.8rem;
+  }
+
+  /* 2. حاوية السكشن والجريد الخاص بالـ Mission */
+  .mission {
+    padding: 3rem 0 !important;
+  }
+
+  .mission-grid {
+    grid-template-columns: 1fr !important; /* إجبار العناصر تحت بعض */
+    gap: 2.5rem !important; /* تقليل الفجوة الكبيرة بين النص والصورة */
+  }
+
+  .mission-heading {
+    font-size: 1.8rem !important; /* تصغير عنوان الفكلتي ليناسب شاشة الموبايل */
+    text-align: center;
+  }
+
+  .mission-body {
+    font-size: 1rem !important; /* حجم نصوص البادي مريح للموبايل */
+    line-height: 1.75 !important;
+    text-align: justify; /* توزيع الحروف بشكل منمق */
+    text-align-last: center;
+    padding: 0 0.5rem;
+  }
+
+  .gold-divider.left {
+    margin: 1.5rem auto !important; /* توسيط الخط الذهبي التحت العنوان */
+  }
+
+  /* 3. ضبط الصورة الجماعية (Photo Frame) للموبايل */
+  .photo-frame-inner {
+    min-height: auto !important; /* إلغاء الـ min-height القديم لتجنب التمطيط */
+    aspect-ratio: 4/3 !important; /* إجبار الأبعاد السينمائية */
+  }
+
+  .photo-caption {
+    justify-content: center; /* توسيط نصوص الكابشن تحت الصورة */
+  }
+
+  /* 4. حل سحري لسنترة كارت الـ Team Leader وإلغاء حسابات الـ Calc القديمة المعقدة */
+  .team-grid .team-card:nth-child(1) {
+    flex: 0 1 280px !important;
+    max-width: 280px !important;
+    margin: 0 auto 3rem auto !important; /* سنترة تلقائية مطلقة وبسيطة مع مسافة تحته */
+  }
+
+  /* 5. ضبط باقي كروت التيم الـ 12 على الموبايل */
+  .team-grid {
+    padding: 2rem 1rem !important;
+    grid-template-columns: 1fr !important; /* عمود واحد صريح لو الكروت Flex تلم نفسها */
+    gap: 2rem !important;
+  }
+
+  .team-card {
+    flex: 0 1 100% !important;
+    max-width: 290px !important; /* الحفاظ على هيكل الكارت بدون أن يفرش بعرض الشاشة كلها */
+    margin: 0 auto !important; /* توسيط الكارت في منتصف الشاشة */
+    padding: 2rem 1.5rem !important;
+  }
+
+  /* 6. ضبط زرار المجلة الملكية أسفل المقالات */
+  .main-magazine-section {
+    padding: 3rem 1rem !important;
+  }
+}
+
+/* ضبط إضافي للموبايلات الصغيرة جداً (أقل من 480px) */
+@media (max-width: 480px) {
+  .about-stats {
+    grid-template-columns: 1fr !important; /* تحويل الإحصائيات لعمود واحد بدل عمودين */
+  }
+
+  .about-stat {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.12) !important;
+    text-align: center;
+  }
+
+  .about-stat:last-child {
+    border-bottom: none !important;
+  }
+}

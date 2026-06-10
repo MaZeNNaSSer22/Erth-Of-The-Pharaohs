@@ -1126,20 +1126,91 @@ cite {
     text-align-last: center; /* تضمن أن السطر الأخير يظل في المنتصف */
   }
 }
-
+/*
 .discoveries-subtitle-wrap {
   width: 100%;
   text-align: center;
-  margin-bottom: 2rem; /* مسافة تفصل الجملة عن الكروت تحتها */
+  margin-bottom: 2rem;
   padding: 0 1rem;
 }
 
 .discoveries-sub-eng {
-  font-family: 'Cinzel', 'Playfair Display', serif; /* خطوط سيريف كلاسيكية فخمة للإنجليزي */
-  font-size: clamp(2rem, 1.8vw, 1.25rem); /* حجم مرن ومتناسق */
-  color: var(--cream); /* لون الذهب الملكي الخاص بـ ERTH */
-  text-transform: uppercase; /* جعل كل الحروف Capital يعطي طابع المتاحف */
-  letter-spacing: 0.15em; /* توسيع المسافات بين الحروف لشكل أكثر فخامة */
+  font-family: 'Cinzel', 'Playfair Display', serif; /* خطوط سيريف كلاسيكية فخمة للإنجليزي 
+  font-size: clamp(2rem, 1.8vw, 1.25rem); /* حجم مرن ومتناسق 
+  color: var(--cream); /* لون الذهب الملكي الخاص بـ ERTH 
+  text-transform: uppercase; /* جعل كل الحروف Capital يعطي طابع المتاحف 
+  letter-spacing: 0.15em; /* توسيع المسافات بين الحروف لشكل أكثر فخامة 
   opacity: 0.85;
   margin: 0;
+}
+*/
+
+.discoveries-subtitle-wrap {
+  width: 100%;
+  display: flex;         /* ضفنا flex عشان نضمن التوسيط الماسي */
+  justify-content: center; 
+  align-items: center;
+  margin-bottom: 2rem;    /* مسافة تفصل الجملة عن الكروت تحتها */
+  padding: 0 1.5rem;      /* زودنا مسافة الأمان للجوانب عشان الموبايل */
+  box-sizing: border-box;
+}
+
+.discoveries-sub-eng {
+  font-family: 'Cinzel', 'Playfair Display', serif; /* خطوط سيريف كلاسيكية فخمة للإنجليزي */
+  
+  /* ── تصحيح الـ clamp: الحجم الصغير 1.2rem والكبير 1.8rem ── */
+  font-size: clamp(1.2rem, 2vw, 1.8rem); 
+  
+  color: var(--cream); /* لون الذهب الملكي الخاص بـ ERTH */
+  text-align: center;  /* نضمن إن النص يتوسطن بالملي */
+  text-transform: uppercase; /* جعل كل الحروف Capital يعطي طابع المتاحف */
+  letter-spacing: 0.15em; /* توسيع المسافات بين الحروف لشكل أكثر فخامة */
+  line-height: 1.4;    /* مسافة عمودية ممتازة لو العنوان نزل على سطرين في الموبايل */
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ── الجزء المخصص للموبايل (تعديلات شاشات أقل من 768px) ── */
+@media (max-width: 768px) {
+  .discoveries-subtitle-wrap {
+    margin-bottom: 1.5rem; /* تقليل المسافة تحت العنوان لتناسب حجم الشاشة الصغير */
+  }
+  
+  .discoveries-sub-eng {
+    letter-spacing: 0.08em; /* تقليل المسافات بين الحروف سيكة عشان الكلمات الطويلة متخرجش بره الشاشة */
+  }
+}
+
+/* 1. إخفاء الفاصل تماماً على اللاب توب والشاشات الكبيرة */
+.mobile-premium-separator {
+  display: none;
+}
+
+/* 2. إظهار وتنسيق الفاصل على الموبايل فقط (شاشات أقل من 768px) */
+@media (max-width: 768px) {
+  .mobile-premium-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 80%; /* طول الفاصل في نص الشاشة */
+    margin: 3rem auto; /* مسافة أمان ممتازة بين الكارت اللي فوق واللي تحت */
+    height: 4px; /* سمك الفاصل */
+    
+    /* تدرج ذهبي فخم يختفي عند الأطراف ويمسك في النص */
+    background: linear-gradient(to right, transparent, #d4af37 20%, #aa7c11 50%, #d4af37 80%, transparent);
+    border-radius: 10px;
+    opacity: 0.8;
+  }
+
+  /* تنسيق الرمز الفرعوني اللي في نص الفاصل */
+  .mobile-premium-separator .separator-icon {
+    position: absolute;
+    background-color: #050505; /* نفس لون خلفية موقعك السوداء عشان يقطع الخط بالظبط */
+    padding: 0 15px; /* مسافة سوداء حول الرمز */
+    color: #d4af37; /* لون الرمز ذهبي */
+    font-size: 1.4rem;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4); /* توهج ذهبي خفيف حول الرمز */
+  }
 }
